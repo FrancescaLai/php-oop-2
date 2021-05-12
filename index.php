@@ -5,7 +5,8 @@
 // di un ipotetico sito e-commerce.
 
 class Prodotto {
-    // attributi e/o proprietà
+    // attributi e/o proprietà (le lascio public altrimenti non posso usarle singolarmente nei vari paragrafi ma 
+    // avrebbe senso metterle protected e poi usarle/trasformarle tramite le funzioni/constructur che sono public)
     public $modello;
     public $brand;
     public $id;
@@ -91,7 +92,7 @@ $jeans = new ProdottoAbbigliamento('501', 'Levis', 'levis501abc', '79.00', 'abbi
 <body>
 
     <h1>Prodotti Disponibili</h1>
-    
+
     <div class="prodotti">
         <div class="scheda-prodotto cosmetica">
             <h3><?php echo "Scheda tecnica del prodotto $rossetto->modello:" ?></h3>
