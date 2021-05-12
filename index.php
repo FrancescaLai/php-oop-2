@@ -6,55 +6,74 @@
 
 class Prodotto {
     // attributi e/o proprietà
-    public $nome;
+    public $modello;
     public $brand;
     public $id;
     public $prezzo;
+    public $categoria;
+    public $colore;
 
     //costruttore
-    public function __construct($_nome, $_brand, $_id, $_prezzo)
+    public function __construct($_modello, $_brand, $_id, $_prezzo, $_categoria, $_colore)
     {
-        $this->nome = $_nome;
+        $this->modello = $_modello;
         $this->brand = $_brand;
         $this->id = $_id;
         $this->prezzo = $_prezzo;
+        $this->categoria = $_categoria;
+        $this->colore = $_colore;
+        
     }
 
     public function getBasicInfo()
     {
-      return $this->nome . " " . $this->brand . " " . $this->id . " " . $this->prezzo;
+      return $this->modello . " " . $this->brand . " " . $this->id . " " . $this->prezzo . " " . $this->categoria . " " . $this->colore;
     }
 }
 
 class ProdottoCosmetico extends Prodotto
 {
    // attributi e/o proprietà 
-   public $categoria;
-   public $colore;
-   public $formato;
+    public $formato;
 
-   public function __construct($_nome, $_brand, $_id, $_prezzo, $_categoria, $_colore, $_formato){
-    $this->nome = $_nome;
-    $this->brand = $_brand;
-    $this->id = $_id;
-    $this->prezzo = $_prezzo;
-    $this->categoria = $_categoria;
-    $this->colore = $_colore;
+    public function __construct($_modello, $_brand, $_id, $_prezzo, $_categoria, $_colore, $_formato){
+    
+        parent::__construct($_modello, $_brand, $_id, $_prezzo, $_categoria, $_colore);
+    
     $this->formato = $_formato;
-   }
+   }   
+}
 
-   
+class ProdottoAbbigliamento extends Prodotto
+{
+    public $taglia;
+    public $composizione;
+
+    public function __construct($_modello, $_brand, $_id, $_prezzo, $_categoria, $_colore, $_taglia, $_composizione){
+    
+        parent::__construct($_modello, $_brand, $_id, $_prezzo, $_categoria, $_colore);
+
+        $this->taglia = $_taglia;
+        $this->composizione = $_composizione;
+    }
+
+    public function getAdditionalInfo(){
+        return $this->taglia . " " . $this->composizione;
+    }
 }
 
 
 
 $rossetto = new ProdottoCosmetico('Toasted', 'Espressoh', 'esprabc123', '19.00', 'cosmetica', 'rosso', 'viaggio');
 
-echo "Scheda tecnica del prodotto {$rossetto->nome}: " . "<br>";
+$jeans = new ProdottoAbbigliamento('501', 'Levis', 'levis501abc', '79.00', 'abbigliamento', 'nero', '27', 'cotone');
+
+
+echo "Scheda tecnica del prodotto {$rossetto->modello}: " . "<br>";
 echo "Brand: {$rossetto->brand}" . "<br>" . "ID: {$rossetto->id}" . "<br>" . "Prezzo: {$rossetto->prezzo} €" . "<br>";
-echo "Categoria merceologica: {$rossetto->categoria}" . "<br>" . "Colore: {$rossetto->colore}" . "<br>" . "Formato: {$rossetto->formato}";
+echo "Categoria merceologica: {$rossetto->categoria}" . "<br>" . "Colore: {$rossetto->colore}" . "<br>" . "Formato: {$rossetto->formato}" . "<br>";
 
-
+echo "{$jeans->getBasicInfo()} {$jeans->getAdditionalInfo()}";
 ?>
 
 
