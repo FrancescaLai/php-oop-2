@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: blanchedalmond;
+    height: 100vh;
+}
+
+h1{
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    padding: 20px 0px;
+}
+.prodotti{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 25px;
+}
+
+.scheda-prodotto{
+    height: 300px;
+    width: 300px;
+    border-radius: 10px;
+    background-size: cover;
+    padding: 25px;
+    color: lightgrey;
+}
+
+.cosmetica{
+    background-image: url('img/aroma1.png');
+}
+
+.abbigliamento{
+    background-image: url('img/levis.jpeg');
+}
+
+h3{
+    font-size: 16px;
+    margin-bottom: 7px;
+    color: black;
+}
+
+p{
+    line-height: 2;
+}
